@@ -73,28 +73,35 @@ const parseFileName = (fileName) => {
 	// return an array of file names from the directory
 	const fileNames = await fs.readdir(InputDir);
 
-	let src;
+	let src = {};
 
 	try {
-		src = await fs.readFile(Srcfile, 'utf-8');
-		src = src.slice(0, src.length - 6);
+		// get the src string
+		src.string = await fs.readFile(Srcfile, 'utf-8');
+
+		src.string = src.string.replace('@version', `@version ${Version}`);
+
+		// split the src string into start and end to be able to insert the icons
+		src.start = src.string.split('//@icons')[0];
+		src.end = src.string.split('//@icons')[1];
 	} catch (err) {
 		if (err) throw err;
 	}
 
 	try {
 		// write the first part of the file to the output file
-		await fs.writeFile(`${OutputDir}pangolin.${Version}.mjs`, src, 'utf-8');
+		await fs.writeFile(
+			`${OutputDir}pangolin.latest.mjs`,
+			src.start,
+			'utf-8'
+		);
 	} catch (err) {
 		if (err) throw err;
 	}
 
 	// itterate over the array of filenames and append the icon objects to the files
 
-	// create an itterator
-	let i = 0;
-
-	for (const file of fileNames) {
+	for (const [i, file] of fileNames.entries()) {
 		try {
 			// get the complete path object from the file
 			let completePath = await fs.readFile(`${InputDir}${file}`, 'utf-8');
@@ -108,13 +115,12 @@ const parseFileName = (fileName) => {
 
 			// append the created text to the file
 			await fs.appendFile(
-				`${OutputDir}pangolin.${Version}.mjs`,
+				`${OutputDir}pangolin.latest.mjs`,
 				text,
 				'utf-8'
 			);
 
-			i++;
-			console.log(`File ${i} of ${fileNames.length} parsed.`);
+			console.log(`File ${i + 1} of ${fileNames.length} parsed.`);
 		} catch (err) {
 			if (err) throw err;
 		}
@@ -122,6 +128,6 @@ const parseFileName = (fileName) => {
 
 	// adter all svgs have been added, add the closing brackets to the file
 
-	await fs.appendFile(`${OutputDir}pangolin.${Version}.mjs`, '},}', 'utf-8');
+	await fs.appendFile(`${OutputDir}pangolin.latest.mjs`, src.end, 'utf-8');
 	console.timeEnd('Time to compile:');
 })();

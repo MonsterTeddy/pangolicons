@@ -18,70 +18,7 @@ const InputDir = './dist/icons_svg/';
 const Version = '0.1';
 
 // the static boilerplate part of pangolin
-const pangolin = `
-/** @format */
-
-const Pangolin = {
-	/**
-	 *
-	 * @private @method toSvg - create a svg element from a passed string, that only contains the svg paths
-	 *
-	 * @param { String } path - the path(s) to be converted
-	 * @param { Icon.icon } options - the options to be used to overwrite the standard attributes
-	 */
-
-	_toSvg(path, options) {
-		// create the svg namespace element
-		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-		// merge the provided options and the standard attributes
-		let attributes = {};
-		Object.assign(attributes, this._defaultAttributes, options);
-
-		// create the properties on the svg itself by itterating over the attributes
-		for (const att in attributes) {
-			if (attributes.hasOwnProperty(att)) {
-				const currentAttribute = attributes[att];
-
-				// set attribute
-				svg.setAttribute(att, currentAttribute);
-			}
-		}
-
-		// insert the path
-		svg.innerHTML = path;
-
-		// return the craeted svg element
-		return svg;
-	},
-
-	/**
-	 *
-	 * @private @method replace - replaces a html element with the corresponding icon from the library
-	 *
-	 * @param { HTMLElement } element - the Html element to be replaced
-	 * @returns { HTMLElement } - the replaced Html element with the appended icon
-	 */
-
-	_replace(element) {},
-
-	// the standard attributes used to create the svgs
-
-	_defaultAttributes: {
-		xmlns: 'http://www.w3.org/2000/svg',
-		width: '24',
-		height: '24',
-		viewBox: '0 0 24 24',
-		stroke: 'currentColor',
-		fill: 'none',
-		'stroke-linecap': 'round',
-		'stroke-width': '2',
-		'stroke-linejoin': 'round',
-		'stroke-align': 'center',
-	},
-
-	icons: {
-`;
+const Srcfile = './dist/pangolicons.src.mjs';
 
 /**
  * @method parsePath - receives a svg string and removes the svg part, the style defs part, and the classes created during export by illustrator. This function is build to parse only svg paths exported by illustrator and relies on them having the correct format
@@ -131,16 +68,23 @@ const parseFileName = (fileName) => {
 // the actual compile function that runs when the compiler is called
 
 (async () => {
+	console.time('Time to compile:');
+
 	// return an array of file names from the directory
 	const fileNames = await fs.readdir(InputDir);
 
+	let src;
+
+	try {
+		src = await fs.readFile(Srcfile, 'utf-8');
+		src = src.slice(0, src.length - 6);
+	} catch (err) {
+		if (err) throw err;
+	}
+
 	try {
 		// write the first part of the file to the output file
-		await fs.writeFile(
-			`${OutputDir}pangolin.${Version}.mjs`,
-			pangolin,
-			'utf-8'
-		);
+		await fs.writeFile(`${OutputDir}pangolin.${Version}.mjs`, src, 'utf-8');
 	} catch (err) {
 		if (err) throw err;
 	}
@@ -179,4 +123,5 @@ const parseFileName = (fileName) => {
 	// adter all svgs have been added, add the closing brackets to the file
 
 	await fs.appendFile(`${OutputDir}pangolin.${Version}.mjs`, '},}', 'utf-8');
+	console.timeEnd('Time to compile:');
 })();

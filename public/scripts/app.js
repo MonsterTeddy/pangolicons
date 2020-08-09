@@ -139,4 +139,5 @@ picker.addEventListener('input', (ev) => {
 		2
 	);
 	document.querySelector('.color-picker').style.background = ev.target.value;
+	hex.value = ev.target.value;
 });

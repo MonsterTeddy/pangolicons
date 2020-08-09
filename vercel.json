@@ -1,0 +1,16 @@
+{
+	"redirects": [
+		{
+			"source": "/pangolin.latest.mjs",
+			"destination": "./dist/pangolin.latest.mjs"
+		},
+		{
+			"source": "/pangolin.latest.min.mjs",
+			"destination": "./dist/pangolin.latest.min.mjs"
+		},
+		{
+			"source": "/pangolin_icons.zip",
+			"destination": "./dist/pangolin_icons.zip"
+		}
+	]
+}

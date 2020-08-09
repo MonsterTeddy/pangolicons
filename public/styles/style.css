@@ -374,6 +374,8 @@ main {
 	top: 0;
 	left: 0;
 	opacity: 0;
+
+	font-size: 1.6em;
 }
 
 .input-color-picker {
@@ -441,42 +443,6 @@ input[type='range']::-moz-range-thumb {
 	border-radius: 14px;
 	background: #494141;
 	cursor: pointer;
-}
-input[type='range']::-ms-track {
-	width: 100%;
-	height: 4px;
-	cursor: pointer;
-
-	background: transparent;
-	border-color: transparent;
-	color: transparent;
-}
-input[type='range']::-ms-fill-lower {
-	background: #cccbcb;
-	border: 0px solid #000000;
-	border-radius: 10px;
-	box-shadow: 0px 0px 0px #000000;
-}
-input[type='range']::-ms-fill-upper {
-	background: #cccbcb;
-	border: 0px solid #000000;
-	border-radius: 10px;
-	box-shadow: 0px 0px 0px #000000;
-}
-input[type='range']::-ms-thumb {
-	box-shadow: 0px 0px 1px #000000;
-	border: 0px solid #000000;
-	height: 14px;
-	width: 14px;
-	border-radius: 14px;
-	background: #494141;
-	cursor: pointer;
-}
-input[type='range']:focus::-ms-fill-lower {
-	background: #cccbcb;
-}
-input[type='range']:focus::-ms-fill-upper {
-	background: #cccbcb;
 }
 
 .icons-grid {

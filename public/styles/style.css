@@ -192,6 +192,7 @@ main {
 .icons-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr auto;
 }
 
 .icons-input > label {
@@ -298,6 +299,11 @@ main {
 	padding: 0.5em 1em;
 
 	height: 4em;
+}
+
+.icons-style-control h3 {
+	padding: 0;
+	margin: 0;
 }
 
 .icons-style-control h3 {

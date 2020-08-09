@@ -631,7 +631,6 @@ input[type='range']:focus::-ms-fill-upper {
 	padding: 1em 1em;
 
 	border: 0.5px solid var(--color-shade);
-	word-break: break-all;
 	overflow: auto;
 }
 

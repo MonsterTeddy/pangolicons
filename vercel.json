@@ -1,16 +1,18 @@
 {
-	"redirects": [
+	"name": "pangolicons",
+	"version": 1,
+	"routes": [
 		{
-			"source": "/pangolin.latest.mjs",
-			"destination": "./dist/pangolin.latest.mjs"
+			"src": "/pangolin.latest.mjs",
+			"dest": "dist/pangolin.latest.mjs"
 		},
 		{
-			"source": "/pangolin.latest.min.mjs",
-			"destination": "./dist/pangolin.latest.min.mjs"
+			"src": "/pangolin.latest.min.mjs",
+			"dest": "dist/pangolin.latest.min.mjs"
 		},
 		{
-			"source": "/pangolin_icons.zip",
-			"destination": "./dist/pangolin_icons.zip"
+			"src": "/pangolin_icons.zip",
+			"dest": "dist/pangolin_icons.zip"
 		}
 	]
 }

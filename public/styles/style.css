@@ -91,6 +91,8 @@ nav {
 
 	display: flex;
 	justify-content: center;
+
+	z-index: 1000;
 }
 
 nav ul {
@@ -280,6 +282,13 @@ main {
 }
 
 .icons-style-control {
+	appearance: none;
+	-webkit-appearance: none;
+
+	background: none;
+	border: none;
+	outline: none;
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -596,6 +605,7 @@ input[type='range']:focus::-ms-fill-upper {
 }
 
 .api-container pre code {
+	width: 100%;
 	font-size: 1.3em;
 	padding: 2em 1em;
 	overflow-x: auto;
@@ -621,6 +631,8 @@ input[type='range']:focus::-ms-fill-upper {
 	padding: 1em 1em;
 
 	border: 0.5px solid var(--color-shade);
+	word-break: break-all;
+	overflow: auto;
 }
 
 /* style cat: @footer */
@@ -681,7 +693,16 @@ footer a:hover {
 	}
 
 	.title-container {
-		font-size: 0.8em;
+		margin-top: 120px;
+		font-size: 1.2em;
+	}
+
+	.title-container h1 {
+		font-size: 3.4em;
+	}
+
+	.title-container h3 {
+		font-size: 1.6em;
 	}
 }
 

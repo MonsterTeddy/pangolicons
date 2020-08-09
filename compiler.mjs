@@ -13,6 +13,7 @@
 
 // import the filesystem module
 import fs from 'fs/promises';
+import childProcess from 'child_process';
 
 // define the output directory
 const OutputDir = './dist/';
@@ -31,9 +32,12 @@ import fetch from 'node-fetch';
 
 const minify = async () => {
 	// try to get the file contents, throw err if file is not present
+
+	let file;
+
 	try {
 		// get the file contents
-		let file = await fs.readFile('./dist/pangolin.latest.mjs', 'utf-8');
+		file = await fs.readFile('./dist/pangolin.latest.mjs', 'utf-8');
 	} catch (err) {
 		if (err) throw err;
 	}
@@ -148,7 +152,7 @@ const parseFileName = (fileName) => {
 			let text = `'${parseFileName(file)}': {
             name: '${parseFileName(file)}',
             path: '${parsePath(completePath)}',
-            toSvg(options = {}){ Pangolin._toSvg(options) }
+            toSvg(options = {}){ return Pangolin._toSvg(this.path, options) }
         },`;
 
 			// append the created text to the file
@@ -168,6 +172,21 @@ const parseFileName = (fileName) => {
 	// append the end of the file
 
 	await fs.appendFile(`${OutputDir}pangolin.latest.mjs`, src.end, 'utf-8');
+
+	// zip the icons
+	try {
+		childProcess.execSync(`zip -r pangolin_icons *`, {
+			cwd: './dist/icons_svg',
+		});
+
+		// move the zip file to the correct folder
+		await fs.rename(
+			'./dist/icons_svg/pangolin_icons.zip',
+			'./dist/pangolin_icons.zip'
+		);
+	} catch (err) {
+		if (err) throw err;
+	}
 
 	await minify();
 

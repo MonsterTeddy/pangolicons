@@ -56,7 +56,11 @@ const Pangolin = {
 	 * @returns { HTMLElement } - the replaced Html element with the appended icon
 	 */
 
-	_replace(element) {},
+	_replace(element) {
+		element.appendChild(
+			this.icons[element.getAttribute('icon-name')].toSvg({})
+		);
+	},
 
 	// the standard attributes used to create the svgs
 

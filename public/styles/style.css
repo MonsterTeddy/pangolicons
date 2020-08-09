@@ -58,6 +58,7 @@ a:hover {
 	letter-spacing: 0.05em;
 
 	text-decoration: none;
+	text-align: center;
 
 	user-select: none;
 	transition: 0.2s ease;
@@ -147,7 +148,7 @@ main {
 .title-container {
 	height: 40vh;
 
-	margin: 5vh 0 5vh 0;
+	margin: 5vh 1em 5vh 1em;
 
 	display: flex;
 	flex-direction: column;
@@ -179,12 +180,19 @@ main {
 	padding: 0;
 	font-size: 2em;
 	font-weight: 300;
+
+	text-align: center;
 }
 
 .title-links {
 	margin: 0;
 	padding: 0;
 	display: inline-flex;
+}
+
+.title-links a {
+	margin: 0.5em 0.5em;
+	font-size: 1.6em;
 }
 
 /* style cat: @icons */
@@ -206,6 +214,8 @@ main {
 	background: var(--color-main);
 
 	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	margin: 1em 1em;
 	padding: 1.4em 1.4em;
@@ -611,7 +621,7 @@ input[type='range']::-moz-range-thumb {
 
 footer {
 	background: var(--color-accent);
-	color: var(--color-main);
+	color: var(--color-shade);
 
 	display: flex;
 	justify-content: center;
@@ -626,11 +636,12 @@ footer {
 
 footer a {
 	text-decoration: none;
-	color: var(--color-main);
+	color: var(--color-shade);
 }
 
 footer a:hover {
 	text-decoration: underline;
+	color: var(--color-main);
 }
 
 @media (max-width: 768px) {
@@ -675,6 +686,10 @@ footer a:hover {
 
 	.title-container h3 {
 		font-size: 1.6em;
+	}
+
+	.title-links {
+		display: block;
 	}
 }
 

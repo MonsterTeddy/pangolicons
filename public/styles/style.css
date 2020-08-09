@@ -296,6 +296,9 @@ main {
 	align-items: center;
 	flex-shrink: 0;
 
+	margin: 0 1em;
+	padding: 0 1em;
+
 	height: 4em;
 }
 

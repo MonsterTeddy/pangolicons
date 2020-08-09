@@ -152,7 +152,8 @@ const parseFileName = (fileName) => {
 			let text = `'${parseFileName(file)}': {
             name: '${parseFileName(file)}',
             path: '${parsePath(completePath)}',
-            toSvg(options = {}){ return Pangolin._toSvg(this.path, options) }
+			toSvg(options = {}){ return Pangolin._toSvg(this, options) },
+			toString(options = {}) {return Pangolin._toString(this, options) }, 
         },`;
 
 			// append the created text to the file

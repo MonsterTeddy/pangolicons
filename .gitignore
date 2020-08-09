@@ -1,9 +1,6 @@
 node_modules
 .env
 
-#source v0.3
-src
-
 # General
 .DS_Store
 .AppleDouble

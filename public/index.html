@@ -8,6 +8,11 @@
 		<title>Pangolicons</title>
 		<script src="./pangolin.latest.mjs"></script>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<link
+			title="svg_styles"
+			rel="stylesheet"
+			href="./styles/svg_styles.css"
+		/>
 		<!-- favicons -->
 		<link
 			rel="apple-touch-icon"
@@ -46,7 +51,7 @@
 				<li>
 					<a href="https://github.com/MonsterTeddy/pangolin"
 						>View on GitHub
-						<i class="pangolin" icon-name="github"></i
+						<i pangolin="github" stroke-width="2"></i
 					></a>
 				</li>
 				<li>
@@ -67,13 +72,7 @@
 				</h1>
 				<h3>Modern & minimal open source icons.</h3>
 				<div class="title-links">
-					<a
-						target="_blank"
-						rel="norefferer noopener"
-						class="link-button link-att"
-						href="https://github.com/MonsterTeddy/pangolin"
-						>Learn how</a
-					>
+					<a class="link-button link-att" href="#api">Learn how</a>
 					<a class="link-button" download href="/pangolin_icons.zip"
 						>Download all</a
 					>
@@ -81,7 +80,7 @@
 			</section>
 			<section class="icons-container">
 				<div class="icons-input">
-					<i class="pangolin" icon-name="search"></i>
+					<i pangolin="search"></i>
 					<label for="icons-search">Search all Icons</label>
 					<input
 						type="search"
@@ -91,11 +90,270 @@
 						placeholder="Search all icons"
 					/>
 				</div>
+				<div class="icons-style">
+					<div class="icons-style-control">
+						<h3>Customize the icons</h3>
+						<span class="icons-style-chevron">
+							<i pangolin="chevronDown"></i
+						></span>
+					</div>
+					<div class="style-grid icons-style-controller">
+						<label for="stroke-width">Stroke-width:</label>
+						<div class="input-container">
+							<input
+								type="range"
+								name="stroke-width"
+								id="stroke-width"
+								value="2"
+								step="0.5"
+								min="0.5"
+								max="3"
+							/>
+							<span class="input-result">24px</span>
+						</div>
+
+						<label for="size">Size:</label>
+						<div class="input-container">
+							<input
+								type="range"
+								name="size"
+								id="size"
+								value="24"
+								step="4"
+								min="12"
+								max="56"
+							/>
+							<span class="input-result">24px</span>
+						</div>
+						<label for="color">Color:</label>
+						<div class="input-container">
+							<input
+								type="text"
+								name="color"
+								id="color-hex"
+								placeholder="#404040"
+							/>
+							<div class="input-color-picker">
+								<label
+									class="color-picker"
+									for="color-picker"
+								></label>
+								<input
+									type="color"
+									name="color-picker"
+									id="color-picker"
+									value="#404040"
+									placeholder="#404040"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="icons-grid"></div>
 			</section>
-			<section class="api-container"></section>
+			<section id="api" class="api-container">
+				<div class="api-icon">
+					<i pangolin="pangolin"></i>
+				</div>
+				<article>
+					<h1>1. Get it:</h1>
+					<p>
+						Download or link the <strong>Pangolicons</strong> file,
+						or download all the icons as svg and use only what you
+						need. Whatever works best for you.
+					</p>
+					<div class="api-links">
+						<a
+							href="./pangolin.lastest.min.mjs"
+							download
+							class="link-button"
+							>Download (Minified, 28kbs)</a
+						>
+						<a
+							class="link-button"
+							href="https://github.com/MonsterTeddy/pangolin"
+							>Get from GitHub
+							<i class="pangolin" icon-name="github"></i
+						></a>
+						<a
+							class="link-button"
+							download
+							href="/pangolin_icons.zip"
+							>All Icons (zipped, 40kb)</a
+						>
+					</div>
+				</article>
+				<article>
+					<h1>2. Use it:</h1>
+					<p>
+						To use Pangolicons, you can simply include or link to it
+						on your website.
+					</p>
+					<pre><code>&lt;script <span style="color:indianred">src=</span><span style="color: seagreen">"./your/path/to/pangolion.latest.min.mjs"</span> &gt;&lt;/script&gt;</code>
+					</pre>
+					<pre><code>&lt;script <span style="color:indianred">src=</span><span style="color: seagreen">"https://pangolicons.now.sh/pangolin.latest.min.mjs"</span> &gt;&lt;/script&gt;</code>
+					</pre>
+					<p>
+						Then, create a <strong>&lt;i&gt;</strong> element with a
+						<strong>"pangolin"</strong> attribute, where the
+						attribute value is the name of the icon you want to
+						place. The <strong>&lt;i&gt;</strong> element will be
+						replaced with the SVG when the "load" event of your
+						webpage is fired. See the example below:
+					</p>
+					<pre><code>&lt;i <span style="color:indianred">pangolin=</span><span style="color: seagreen">"x"</span> &gt;&lt;/i&gt;</code>
+					</pre>
+				</article>
+				<article>
+					<h1>3. Style it:</h1>
+					<p>
+						Besides using CSS to style your SVGs (which is
+						recommended), you can give the icon some more attributes
+						to style the icons as you wish. See the example below:
+					</p>
+					<pre><code>&lt;i <span style="color:indianred">pangolin=</span><span style="color: seagreen">"x"</span> <span style="color:indianred">stroke-width=</span><span style="color: seagreen">"2"</span> <span style="color:indianred">line-join=</span><span style="color: seagreen">"round"</span> &gt;&lt;/i&gt;</code>
+					</pre>
+					<p>
+						In general, all attributes you assign to the
+						<strong>&lt;i&gt;</strong> tag will be copied to the
+						created SVG. That means you can use all attributes the
+						SVG interface provides.
+					</p>
+					<p>This is an incomplete list of possible attributes:</p>
+					<pre><code>{
+	xmlns: <span style="color: seagreen">'http://www.w3.org/2000/svg'</span>,
+	width: <span style="color: seagreen">'24'</span>,
+	height: <span style="color: seagreen">'24'</span>,
+	viewBox: <span style="color: seagreen">'0 0 24 24'</span>,
+	stroke: <span style="color: seagreen">'currentColor'</span>,
+	fill: <span style="color: seagreen">'none'</span>,
+	<span style="color: seagreen">'stroke-linecap'</span>: <span style="color: seagreen">'round'</span>,
+	<span style="color: seagreen">'stroke-width'</span>: <span style="color: seagreen">'2'</span>,
+	<span style="color: seagreen">'stroke-linejoin'</span>: <span style="color: seagreen">'round'</span>,
+	<span style="color: seagreen">'stroke-align'</span>: <span style="color: seagreen">'center'</span>,
+	<span style="color: seagreen">'stroke-linejoin'</span>: <span style="color: seagreen">'round'</span>,
+}</code>
+					</pre>
+					<p>
+						For more information about SVG Attributes, see the
+						<a
+							href="https://developer.mozilla.org/en-US/docs/Web/SVG"
+							target="_blank"
+							rel="noopener norefferer"
+							>MDN Svg Attribute reference</a
+						>.
+					</p>
+				</article>
+				<article>
+					<h1>4. API:</h1>
+					<p>
+						After adding <strong>Pangolin</strong> to your website,
+						it is globally accesible, which lets you access all
+						icons directly using javascript.
+					</p>
+					<pre><code>console.<span style="color:slateblue ">log</span>(<span style="color: indianred">Pangolin</span>)
+<span style="color: lightgray">// {_defaultAttributes: {…}, icons: {…}, _toSvg: ƒ, _replace: ƒ} </span></code>
+					</pre>
+					<h3>Pangolin.icons</h3>
+					<p>
+						Is an object containing all icons and their respective
+						data.
+					</p>
+					<pre><code>Pangolin.<span style="color:seagreen">[&lt;icon name&gt;]</span>
+//{
+//  name: [&lt;icon name&gt;], -- @string
+//  path: '&lt;path ... /&gt;&lt;path ... /&gt;', --@string
+//  toSvg: [Function], --@function
+//  toString: [Function], --@function
+//}</code></pre>
+					<h3>Pangolin.icons["icon name"].toSvg({options})</h3>
+					<p>Returns an SVGelement</p>
+					<div class="code-grid">
+						<span><strong>Name</strong></span>
+						<span><strong>Type</strong></span>
+						<span><strong>Description</strong></span>
+						<span>options (optional)</span>
+						<span>Object</span>
+						<span
+							>An Object that contains key value pairs of svg
+							attributes to add to the svg element. All default
+							attributes can be overwritten this way.</span
+						>
+					</div>
+					<pre><code>// Usage:
+<span style="color: indianred">elem</span>.<span style="color: slateblue;">appendChild</span>(Pangolin.<span style="color: indianred">icons.<span style="color: slateblue">x.toSvg({ color: #aaffaa })</span></span>)
+
+// Appends the SVG element directly to the HTMLelement
+&lt;span&gt;
+	&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"pangolin pangolin-x"</span> <span style="color:indianred">color</span>=<span style="color: seagreen">"#aaffaa"</span> ... &gt;...&lt;/svg&gt;
+&lt;/span&gt;</code></pre>
+					<h3>Pangolin.icons["icon name"].toString({options})</h3>
+					<p>Returns an SVG String</p>
+					<div class="code-grid">
+						<span><strong>Name</strong></span>
+						<span><strong>Type</strong></span>
+						<span><strong>Description</strong></span>
+						<span>options (optional)</span>
+						<span>Object</span>
+						<span
+							>An Object that contains key value pairs of svg
+							attributes to add to the svg element. All default
+							attributes can be overwritten this way.</span
+						>
+					</div>
+					<pre><code>// Usage:
+<span style="color: indianred">elem</span>.<span style="color: slateblue;">innerHTML</span> = Pangolin.<span style="color: indianred">icons.<span style="color: slateblue">x.toString({ color: #aaffaa })</span></span>
+
+// Appends the SVG String to the elem
+&lt;span&gt;
+	&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"pangolin pangolin-x"</span> <span style="color:indianred">color</span>=<span style="color: seagreen">"#aaffaa"</span> ... &gt;...&lt;/svg&gt;
+&lt;/span&gt;	
+					</code></pre>
+					<h3>Pangolin._replace(element)</h3>
+					<p>Replaces a HTMLElement with a newly created SVG Icon</p>
+					<div class="code-grid">
+						<span><strong>Name</strong></span>
+						<span><strong>Type</strong></span>
+						<span><strong>Description</strong></span>
+						<span>element</span>
+						<span>HTMLElement</span>
+						<span
+							>An HTMLElement that should be converted to a
+							Pangolin icon. The element has to have a Pangolin
+							attribute that specifies the name of the icon. All
+							other attributes will be copied to the newly created
+							svg element. The HTMLElement will be deleted. This
+							is the same method that Pangolin executes on
+							pageload.
+						</span>
+					</div>
+					<pre><code>// Usage:
+&lt;i <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolin</span>=<span style="color: seagreen">"x"</span>&gt;&lt;/i&gt;
+
+// get the icon
+let icon = document.<span style="color: slateblue">querySelector(<span style="color: seagreen">i.icon-to-replace</span>)</span>
+
+// replace the icon
+Pangolin.<span style="color: slateblue">_replace(<span style="color: indianred">icon</span>)</span>
+
+// the element will be replaced with an svg element
+&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolin</span>=<span style="color: seagreen">"x"</span> ... &gt;
+	&lt;path ... /&gt;
+&lt;/svg&gt;</code></pre>
+				</article>
+			</section>
 		</main>
-		<footer></footer>
+		<footer>
+			<p>
+				&copy; 2020,
+				<a
+					href="https://github.com/monsterteddy"
+					target="_blank"
+					rel="norefferer noopener"
+					>Sebastian Heinz</a
+				>
+			</p>
+		</footer>
 		<script src="./scripts/app.js"></script>
 	</body>
 </html>

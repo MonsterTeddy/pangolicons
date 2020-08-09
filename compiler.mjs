@@ -2,8 +2,12 @@
 
 /**
  *
- * This file compiles the icons to the pangolin file.
+ * This file can be used to compile the pangolin icons into the file instead of adding all icons manually.
+ * It will also minify the file, even though not much can be earned by compression, due to the many uncompressable svg
+ * paths.
  *
+ * Compiler will output to pangolin.latest.mjs and read the src from the provided source path. The src should contain a
+ * //@icons placeholder where the icons should be appended, this is where the compiler splits the src
  *
  */
 
@@ -17,8 +21,41 @@ const InputDir = './dist/icons_svg/';
 // the version that the file should show
 const Version = '0.1';
 
-// the static boilerplate part of pangolin
-const Srcfile = './dist/pangolicons.src.mjs';
+// the path for the static part of pangolin
+const Srcfile = './dist/pangolin.src.mjs';
+
+// import the queryString and https modules
+import fetch from 'node-fetch';
+
+// function to minify the created file
+
+const minify = async () => {
+	// try to get the file contents, throw err if file is not present
+	try {
+		// get the file contents
+		let file = await fs.readFile('./dist/pangolin.latest.mjs', 'utf-8');
+	} catch (err) {
+		if (err) throw err;
+	}
+
+	try {
+		// perfom a fetch request to js minifier
+		let response = await fetch('https://javascript-minifier.com/raw', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: encodeURI(`input=${file}`),
+		}).then((res) => res.text());
+
+		// write the response to file
+		await fs.writeFile('./dist/pangolin.latest.min.mjs', response, 'utf-8');
+
+		console.log('File minfied!');
+	} catch (err) {
+		if (err) throw err;
+	}
+};
 
 /**
  * @method parsePath - receives a svg string and removes the svg part, the style defs part, and the classes created during export by illustrator. This function is build to parse only svg paths exported by illustrator and relies on them having the correct format
@@ -46,7 +83,8 @@ const parsePath = (path) => {
  *
  * @method parseFilename - parses a filename to create the icon name from the filename. removes the trailing svg indentifier and fileextension
  *
- * @param { String } fileName
+ * @param { String } fileName - the filename as string to be parsed
+ * @returns { String } - the parsed file name
  */
 
 const parseFileName = (fileName) => {
@@ -120,14 +158,19 @@ const parseFileName = (fileName) => {
 				'utf-8'
 			);
 
+			// log the current progression
 			console.log(`File ${i + 1} of ${fileNames.length} parsed.`);
 		} catch (err) {
 			if (err) throw err;
 		}
 	}
 
-	// adter all svgs have been added, add the closing brackets to the file
+	// append the end of the file
 
 	await fs.appendFile(`${OutputDir}pangolin.latest.mjs`, src.end, 'utf-8');
+
+	await minify();
+
+	// call the timer end
 	console.timeEnd('Time to compile:');
 })();

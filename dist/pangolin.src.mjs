@@ -82,4 +82,6 @@ const Pangolin = {
 window.addEventListener('load', (ev) => {
 	// get all pangolin icons
 	let iconElements = document.querySelectorAll('i.pangolin');
+
+	iconElements.forEach((icon) => Pangolin._replace(icon));
 });

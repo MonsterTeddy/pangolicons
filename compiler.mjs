@@ -18,7 +18,7 @@ import childProcess from 'child_process';
 // define the output directory
 const OutputDir = './dist/';
 // define the input directory
-const InputDir = './dist/icons_svg/';
+const InputDir = './dist/icons_svg_source/';
 // the version that the file should show
 const Version = '0.1';
 
@@ -94,14 +94,23 @@ const parsePath = (path) => {
 const parseFileName = (fileName) => {
 	let parsedName;
 
-	// split the fileName at underscores. The last part of a filename will always be a _s24.svg
-	parsedName = fileName.split('_');
+	if (fileName.includes('@')) {
+		// split the fileName at @. 0 will be the name, 1 will be the tags, 2 will be the ext
+		let split = fileName.split('@');
 
-	// join the remaining parts together
-	parsedName.pop();
+		// remove the ext
+		split.pop();
 
-	// if there are more then one part of a string, join the strings
-	parsedName = parsedName.length > 1 ? parsedName.join('_') : parsedName;
+		parsedName = {
+			name: split[0],
+			// split the string to get an array of tags
+			// or add the name of the element as the only
+			tags: [split[0], ...split[1].split(',')] || [split[0]],
+		};
+	} else {
+		// fallback for older icons that have not yet been tagged
+		parsedName = { name: fileName.split('_').pop().join('_'), tags: [] };
+	}
 
 	// return the now parsed filename
 	return parsedName;
@@ -148,9 +157,14 @@ const parseFileName = (fileName) => {
 			// get the complete path object from the file
 			let completePath = await fs.readFile(`${InputDir}${file}`, 'utf-8');
 
+			console.log(parseFileName(file));
+
+			let { name, tags } = parseFileName(file);
+
 			// create the text fragment to append
-			let text = `'${parseFileName(file)}': {
-            name: '${parseFileName(file)}',
+			let text = `'${name}': {
+			name: '${name}',
+			tags: [${tags.map((tag) => `'${tag}'`).join(',')}],
             path: '${parsePath(completePath)}',
 			toSvg(options = {}){ return Pangolin._toSvg(this, options) },
 			toString(options = {}) {return Pangolin._toString(this, options) }, 
@@ -161,6 +175,21 @@ const parseFileName = (fileName) => {
 				`${OutputDir}pangolin.latest.mjs`,
 				text,
 				'utf-8'
+			);
+
+			// helper function to copy and rename
+			const copyAndRename = async (src, file, dest, newFilename) => {
+				// begin operatin by copying the file
+				await fs.copyFile(`${src}${file}`, `${dest}${file}`);
+				// rename the file
+				await fs.rename(`${dest}${file}`, `${dest}${newFilename}`);
+			};
+
+			await copyAndRename(
+				InputDir,
+				file,
+				`./dist/icons_svg/`,
+				`${parseFileName(file).name}_s24.svg`
 			);
 
 			// log the current progression

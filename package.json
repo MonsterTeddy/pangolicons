@@ -18,7 +18,8 @@
 	"dependencies": {
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
-		"node-fetch": "^2.6.0"
+		"uglify-es": "^3.3.9",
+		"uglify-js": "^3.10.1"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.4"

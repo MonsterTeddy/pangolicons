@@ -25,8 +25,8 @@ const Version = '0.1';
 // the path for the static part of pangolin
 const Srcfile = './dist/pangolin.src.mjs';
 
-// import the queryString and https modules
-import fetch from 'node-fetch';
+// import uglify
+import uglify from 'uglify-es';
 
 // function to minify the created file
 
@@ -43,17 +43,14 @@ const minify = async () => {
 	}
 
 	try {
-		// perfom a fetch request to js minifier
-		let response = await fetch('https://javascript-minifier.com/raw', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-			body: encodeURI(`input=${file}`),
-		}).then((res) => res.text());
+		let minified = uglify.minify(file);
 
 		// write the response to file
-		await fs.writeFile('./dist/pangolin.latest.min.mjs', response, 'utf-8');
+		await fs.writeFile(
+			'./dist/pangolin.latest.min.mjs',
+			minified.code,
+			'utf-8'
+		);
 
 		console.log('File minfied!');
 	} catch (err) {

@@ -87,15 +87,19 @@ const hex = document.querySelector('#color-hex');
 const picker = document.querySelector('#color-picker');
 
 // get the stylesheet
-function getStyleSheet(unique_title) {
+
+const getStyleSheet = (title) => {
 	for (var i = 0; i < document.styleSheets.length; i++) {
 		var sheet = document.styleSheets[i];
-		if (sheet.title == unique_title) {
+		if (sheet.title == title) {
 			return sheet;
 		}
 	}
-}
+};
+
 const styleSheet = getStyleSheet('svg_styles');
+
+// add the event listeners
 
 strokewidth.addEventListener('input', (ev) => {
 	styleSheet.removeRule(0);
@@ -105,6 +109,7 @@ strokewidth.addEventListener('input', (ev) => {
 	);
 	strokewidth.nextElementSibling.textContent = `${ev.target.value}px`;
 });
+
 size.addEventListener('input', (ev) => {
 	styleSheet.removeRule(1);
 	styleSheet.insertRule(
@@ -113,6 +118,7 @@ size.addEventListener('input', (ev) => {
 	);
 	size.nextElementSibling.textContent = `${ev.target.value}px`;
 });
+
 hex.addEventListener('input', (ev) => {
 	if (ev.target.value.match(/\#{0,1}[a-f0-9]+$/gim)) {
 		styleSheet.removeRule(2);
@@ -123,6 +129,7 @@ hex.addEventListener('input', (ev) => {
 				: '#' + ev.target.value;
 
 		styleSheet.insertRule(`.icons-iconContainer svg {color: ${color}}`, 2);
+		picker.value = color;
 	} else {
 		styleSheet.removeRule(2);
 		styleSheet.insertRule(

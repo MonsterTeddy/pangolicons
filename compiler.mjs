@@ -157,8 +157,6 @@ const parseFileName = (fileName) => {
 			// get the complete path object from the file
 			let completePath = await fs.readFile(`${InputDir}${file}`, 'utf-8');
 
-			console.log(parseFileName(file));
-
 			let { name, tags } = parseFileName(file);
 
 			// create the text fragment to append

@@ -50,23 +50,19 @@ const createIcons = (icons) => {
 	svgs = document.querySelectorAll('.icons-iconContainer svg');
 };
 
-window.addEventListener('load', (ev) => {
-	createIcons(Pangolin.icons);
-});
-
 // get the input element
 let input = document.querySelector('#icons-search');
 
 // add an event listener to change icon selection on search
 input.addEventListener('input', (ev) => {
-	let parsedIcons = {};
-	Object.entries(Pangolin.icons).forEach((elem) => {
-		if (elem[0].toLowerCase().includes(ev.target.value.toLowerCase())) {
-			parsedIcons[elem[0]] = elem[1];
-		}
-	});
+	createIcons({ ...Pangolin.search(ev.target.value) });
+});
 
-	createIcons(parsedIcons);
+window.addEventListener('load', (ev) => {
+	createIcons(Pangolin.icons);
+	input.placeholder = `Search all ${
+		Object.keys(Pangolin.icons).length
+	} Icons`;
 });
 
 // style controls
@@ -129,7 +125,6 @@ hex.addEventListener('input', (ev) => {
 				: '#' + ev.target.value;
 
 		styleSheet.insertRule(`.icons-iconContainer svg {color: ${color}}`, 2);
-		picker.value = color;
 	} else {
 		styleSheet.removeRule(2);
 		styleSheet.insertRule(

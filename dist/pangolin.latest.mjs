@@ -99,6 +99,52 @@ const Pangolin = {
 		return icon;
 	},
 
+	/**
+	 *
+	 * @public @method search - method to match the icons name or tags against a searchstring
+	 *
+	 * @param { String } searchString - the string to match the icons agains
+	 * @param { Object } options - set tags to true to search for tags, set title for true to search the title
+	 * @returns { Array } - An array containing all icons that are a match
+	 */
+
+	search(searchString, options = { tags: true, title: true }) {
+		// define the array that holds the found elements
+		let foundElements = [];
+
+		// convert the search string to lowercase
+		searchString = searchString.toLowerCase();
+
+		// helper function to search the tags
+		const searchTags = (tags, string) =>
+			tags.filter((tag) => tag.includes(string));
+
+		// start itterating over the icons
+		Object.entries(this.icons).map((icon) => {
+			if (options.tags) {
+				// if the search is looking for tags
+				// check if there is an tag in the array that matches the search string
+				if (searchTags(icon[1].tags, searchString).length > 0) {
+					foundElements.push(icon[1]);
+				}
+			} else if (!options.tags && options.title) {
+				//else check the title for a match with the search string
+				if (icon[0].toLowerCase().includes(searchString)) {
+					foundElements.push(icon[1]);
+				}
+			} else {
+				// if no mode is specified, warn and return err
+				console.warn('Pangolin: No mode for search specified.');
+				foundElements.push({
+					err: 'No mode specified',
+				});
+			}
+		});
+
+		// return the found elements
+		return foundElements;
+	},
+
 	// the standard attributes used to create the svgs
 
 	_defaultAttributes: {

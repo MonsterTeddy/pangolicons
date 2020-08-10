@@ -6,8 +6,9 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Pangolicons</title>
-		<script src="./pangolin.latest.mjs"></script>
-		<link rel="stylesheet" href="./styles/style.css" />
+		<script rel="preload" src="./pangolin.latest.mjs" as="script"></script>
+		<link rel="preload" href="./styles/style.css" as="style" />
+		<link rel="stylesheet" href="./styles/style.css" as="stylesheet" />
 		<link
 			title="svg_styles"
 			rel="stylesheet"
@@ -340,14 +341,51 @@ Pangolin.<span style="color: slateblue">_replace(<span style="color: indianred">
 &lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolin</span>=<span style="color: seagreen">"x"</span> ... &gt;
 	&lt;path ... /&gt;
 &lt;/svg&gt;</code></pre>
+					<h3>Pangolin.search("searchString", {options})</h3>
+					<p>
+						Returns an array containing all icons which tags or
+						title matches the search string.
+					</p>
+					<div class="code-grid">
+						<span><strong>Name</strong></span>
+						<span><strong>Type</strong></span>
+						<span><strong>Description</strong></span>
+						<span>searchString</span>
+						<span style="word-break: break-all;">String</span>
+						<span
+							>A string to search the tags or title for. For
+							example "Pangolin". The search is case
+							insensitive</span
+						>
+						<span>options (optional)</span>
+						<span style="word-break: break-all;">Object</span>
+						<span
+							>An object to determine if to search the title or
+							the tags of the icons for a match against the search
+							string. By default, tags will be searched. Set the
+							"tags" property to false and the "title" property to
+							true to search only the title.</span
+						>
+					</div>
+					<pre><code>// Usage:
+let found = Pangolin.<span style="color: slateblue">search(<span style="color: seagreen">"pangolin"</span>, { tags: true })</span>
+
+// Result
+// [{name: "pangolin", tags: [ "pangolin" ], path: "&lt;path ... /&gt;"", toSvg: ƒ, toString: ƒ}]</code></pre>
 				</article>
 				<article>
 					<h1>5. Play with it:</h1>
 					<p>
-						Pangolicons is licensed under the MIT license which
-						makes it open source. You can experiment with it, add
-						Icons to it, or recompile it to use just the icons that
-						you need!
+						Pangolicons is licensed under the
+						<a
+							href="https://opensource.org/licenses/MIT"
+							target="_blank"
+							rel="noopener norefferer"
+							>MIT license</a
+						>
+						which makes it open source. You can experiment with it,
+						add Icons to it, or recompile it to use just the icons
+						that you need!
 					</p>
 				</article>
 			</section>

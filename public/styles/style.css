@@ -544,6 +544,8 @@ input[type='range']::-moz-range-thumb {
 	margin: 1em 0 0.3em;
 	border-radius: 5px;
 	background: rgba(240, 240, 240, 1);
+
+	word-break: break-all;
 }
 
 .api-container p {

@@ -694,6 +694,10 @@ footer a:hover {
 	.title-links {
 		display: block;
 	}
+
+	.api-icon {
+		margin-top: 8em;
+	}
 }
 
 @media (max-width: 515px) {

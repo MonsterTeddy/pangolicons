@@ -79,7 +79,7 @@ For more information about SVG attributes, see the <a href="https://developer.mo
 
 ## API
 
- $~$
+
 
 After adding **Pangolin** to your website it should be globally accessible, which lets you access all icons and the API using Javascript. You can also import it into your file.  
 

@@ -34,7 +34,7 @@ export default {
 		Object.assign(
 			attributes,
 			this._defaultAttributes,
-			{ class: `pangolin pangolin-${icon.name}` },
+			{ class: `pangolicons pangolicons-${icon.name}` },
 			options
 		);
 

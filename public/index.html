@@ -57,13 +57,13 @@
 				<li>
 					<a href="https://github.com/MonsterTeddy/pangolin"
 						>View on GitHub
-						<i pangolin="github" stroke-width="2"></i
+						<i pangolicons="github" stroke-width="2"></i
 					></a>
 				</li>
 				<li>
 					<a
 						class="link-button"
-						href="./pangolin.latest.min.mjs"
+						href="./pangolicons.latest.min.mjs"
 						download
 						>Download latest</a
 					>
@@ -79,14 +79,17 @@
 				<h3>Modern & minimal open source icon library.</h3>
 				<div class="title-links">
 					<a class="link-button link-att" href="#api">Get started</a>
-					<a class="link-button" download href="/pangolin_icons.zip"
+					<a
+						class="link-button"
+						download
+						href="/pangolicons_icons.zip"
 						>Download all</a
 					>
 				</div>
 			</section>
 			<section class="icons-container">
 				<div class="icons-input">
-					<i pangolin="search"></i>
+					<i pangolicons="search"></i>
 					<label for="icons-search">Search all Icons</label>
 					<input
 						type="search"
@@ -100,7 +103,7 @@
 					<button class="icons-style-control">
 						<h3>Customize the icons</h3>
 						<span class="icons-style-chevron">
-							<i pangolin="chevronDown"></i
+							<i pangolicons="chevronDown"></i
 						></span>
 					</button>
 					<div class="style-grid icons-style-controller">
@@ -159,7 +162,7 @@
 			</section>
 			<section id="api" class="api-container">
 				<div class="api-icon">
-					<i pangolin="pangolin"></i>
+					<i pangolicons="pangolin"></i>
 				</div>
 				<article>
 					<h1>1. Get it:</h1>
@@ -170,21 +173,21 @@
 					</p>
 					<div class="api-links">
 						<a
-							href="./pangolin.lastest.min.mjs"
+							href="./pangolicons.lastest.min.mjs"
 							download
 							class="link-button"
 							>Download (Minified, 28kbs)</a
 						>
 						<a
 							class="link-button"
-							href="https://github.com/MonsterTeddy/pangolin"
+							href="https://github.com/MonsterTeddy/pangolicons"
 							>Get from GitHub
-							<i class="pangolin" icon-name="github"></i
+							<i class="pangolicons" icon-name="github"></i
 						></a>
 						<a
 							class="link-button"
 							download
-							href="/pangolin_icons.zip"
+							href="/pangolicons_icons.zip"
 							>All Icons (zipped, 40kb)</a
 						>
 					</div>
@@ -197,17 +200,17 @@
 					</p>
 					<pre><code>&lt;script <span style="color:indianred">src=</span><span style="color: seagreen">"./your/path/to/pangolion.latest.min.mjs"</span>  &gt;&lt;/script&gt;</code>
 					</pre>
-					<pre><code>&lt;script <span style="color:indianred">src=</span><span style="color: seagreen">"https://pangolicons.herokuapp.com/pangolin.latest.min.mjs"</span> &gt;&lt;/script&gt;</code>
+					<pre><code>&lt;script <span style="color:indianred">src=</span><span style="color: seagreen">"https://pangolicons.herokuapp.com/pangolicons.latest.min.mjs"</span> &gt;&lt;/script&gt;</code>
 					</pre>
 					<p>
 						Then, create a <strong>&lt;i&gt;</strong> element with a
-						<strong>"pangolin"</strong> attribute, where the
+						<strong>"pangolicons"</strong> attribute, where the
 						attribute value is the name of the icon you want to
 						place. The <strong>&lt;i&gt;</strong> element will be
 						replaced with the SVG when the "load" event of your
 						webpage is fired. See the example below:
 					</p>
-					<pre><code>&lt;i <span style="color:indianred">pangolin=</span><span style="color: seagreen">"x"</span> &gt;&lt;/i&gt;</code>
+					<pre><code>&lt;i <span style="color:indianred">pangolicons=</span><span style="color: seagreen">"x"</span> &gt;&lt;/i&gt;</code>
 					</pre>
 				</article>
 				<article>
@@ -217,7 +220,7 @@
 						recommended), you can give the icon some more attributes
 						to style the icons as you wish. See the example below:
 					</p>
-					<pre><code>&lt;i <span style="color:indianred">pangolin=</span><span style="color: seagreen">"x"</span> <span style="color:indianred">stroke-width=</span><span style="color: seagreen">"2"</span> <span style="color:indianred">line-join=</span><span style="color: seagreen">"round"</span> &gt;&lt;/i&gt;</code>
+					<pre><code>&lt;i <span style="color:indianred">pangolicons=</span><span style="color: seagreen">"x"</span> <span style="color:indianred">stroke-width=</span><span style="color: seagreen">"2"</span> <span style="color:indianred">line-join=</span><span style="color: seagreen">"round"</span> &gt;&lt;/i&gt;</code>
 					</pre>
 					<p>
 						In general, all attributes you assign to the
@@ -253,26 +256,26 @@
 				<article>
 					<h1>4. API:</h1>
 					<p>
-						After adding <strong>Pangolin</strong> to your website,
-						it is globally accesible, which lets you access all
-						icons directly using javascript.
+						After adding <strong>Pangolicons</strong> to your
+						website, it is globally accesible, which lets you access
+						all icons directly using javascript.
 					</p>
-					<pre><code>console.<span style="color:slateblue ">log</span>(<span style="color: indianred">Pangolin</span>)
+					<pre><code>console.<span style="color:slateblue ">log</span>(<span style="color: indianred">Pangolicons</span>)
 // {_defaultAttributes: {…}, icons: {…}, _toSvg: ƒ, _replace: ƒ, toString: ƒ}</code>
 					</pre>
-					<h3>Pangolin.icons</h3>
+					<h3>Pangolicons.icons</h3>
 					<p>
 						Is an object containing all icons and their respective
 						data.
 					</p>
-					<pre><code>Pangolin.<span style="color:seagreen">[&lt;icon name&gt;]</span>
+					<pre><code>Pangolicons.<span style="color:seagreen">[&lt;icon name&gt;]</span>
 //{
 //  name: [&lt;icon name&gt;], -- @string
 //  path: '&lt;path ... /&gt;&lt;path ... /&gt;', --@string
 //  toSvg: [Function], --@function
 //  toString: [Function], --@function
 //}</code></pre>
-					<h3>Pangolin.icons["icon name"].toSvg({options})</h3>
+					<h3>Pangolicons.icons["icon name"].toSvg({options})</h3>
 					<p>Returns an SVGelement</p>
 					<div class="code-grid">
 						<span><strong>Name</strong></span>
@@ -287,13 +290,13 @@
 						>
 					</div>
 					<pre><code>// Usage:
-<span style="color: indianred">elem</span>.<span style="color: slateblue;">appendChild</span>(Pangolin.<span style="color: indianred">icons.<span style="color: slateblue">x.toSvg({ color: #aaffaa })</span></span>)
+<span style="color: indianred">elem</span>.<span style="color: slateblue;">appendChild</span>(Pangolicons.<span style="color: indianred">icons.<span style="color: slateblue">x.toSvg({ color: #aaffaa })</span></span>)
 
 // Appends the SVG element directly to the HTMLelement
 &lt;span&gt;
-	&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"pangolin pangolin-x"</span> <span style="color:indianred">color</span>=<span style="color: seagreen">"#aaffaa"</span> ... &gt;...&lt;/svg&gt;
+	&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"pangolicons pangolicons-x"</span> <span style="color:indianred">color</span>=<span style="color: seagreen">"#aaffaa"</span> ... &gt;...&lt;/svg&gt;
 &lt;/span&gt;</code></pre>
-					<h3>Pangolin.icons["icon name"].toString({options})</h3>
+					<h3>Pangolicons.icons["icon name"].toString({options})</h3>
 					<p>Returns an SVG String</p>
 					<div class="code-grid">
 						<span><strong>Name</strong></span>
@@ -315,7 +318,7 @@
 	&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"pangolin pangolin-x"</span> <span style="color:indianred">color</span>=<span style="color: seagreen">"#aaffaa"</span> ... &gt;...&lt;/svg&gt;
 &lt;/span&gt;	
 					</code></pre>
-					<h3>Pangolin._replace(element)</h3>
+					<h3>Pangolicons._replace(element)</h3>
 					<p>Replaces a HTMLElement with a newly created SVG Icon</p>
 					<div class="code-grid">
 						<span><strong>Name</strong></span>
@@ -325,28 +328,28 @@
 						<span style="word-break: break-all;">HTMLElement</span>
 						<span
 							>An HTMLElement that should be converted to a
-							Pangolin icon. The element has to have a Pangolin
-							attribute that specifies the name of the icon. All
-							other attributes will be copied to the newly created
-							svg element. The HTMLElement will be deleted. This
-							is the same method that Pangolin executes on
-							pageload.
+							Pangolicons icon. The element has to have a
+							Pangolicons attribute that specifies the name of the
+							icon. All other attributes will be copied to the
+							newly created svg element. The HTMLElement will be
+							deleted. This is the same method that Pangolicons
+							executes on pageload.
 						</span>
 					</div>
 					<pre><code>// Usage:
-&lt;i <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolin</span>=<span style="color: seagreen">"x"</span>&gt;&lt;/i&gt;
+&lt;i <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolicons</span>=<span style="color: seagreen">"x"</span>&gt;&lt;/i&gt;
 
 // get the icon
 let icon = document.<span style="color: slateblue">querySelector(<span style="color: seagreen">i.icon-to-replace</span>)</span>
 
 // replace the icon
-Pangolin.<span style="color: slateblue">_replace(<span style="color: indianred">icon</span>)</span>
+Pangolicons.<span style="color: slateblue">_replace(<span style="color: indianred">icon</span>)</span>
 
 // the element will be replaced with an svg element
-&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolin</span>=<span style="color: seagreen">"x"</span> ... &gt;
+&lt;svg <span style="color:indianred">class</span>=<span style="color: seagreen">"icon-to-replace"</span> <span style="color:indianred">pangolicons</span>=<span style="color: seagreen">"x"</span> ... &gt;
 	&lt;path ... /&gt;
 &lt;/svg&gt;</code></pre>
-					<h3>Pangolin.search("searchString", {options})</h3>
+					<h3>Pangolicons.search("searchString", {options})</h3>
 					<p>
 						Returns an array containing all icons which tags or
 						title matches the search string.
@@ -373,7 +376,7 @@ Pangolin.<span style="color: slateblue">_replace(<span style="color: indianred">
 						>
 					</div>
 					<pre><code>// Usage:
-let found = Pangolin.<span style="color: slateblue">search(<span style="color: seagreen">"pangolin"</span>, { tags: true })</span>
+let found = Pangolicons.<span style="color: slateblue">search(<span style="color: seagreen">"pangolin"</span>, { tags: true })</span>
 
 // Result
 // [{name: "pangolin", tags: [ "pangolin" ], path: "&lt;path ... /&gt;"", toSvg: ƒ, toString: ƒ}]</code></pre>

@@ -1,8 +1,8 @@
 {
 	"name": "pangolicons",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "Pangolicons is an open source svg icon library",
-	"main": "pangolicons.js",
+	"main": "pangolicons.mjs",
 	"keywords": [
 		"svg",
 		"icon",

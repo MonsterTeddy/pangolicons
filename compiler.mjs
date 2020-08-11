@@ -218,7 +218,7 @@ const copyAndRename = async (src, file, dest, newFilename) => {
 		'./dist/',
 		'pangolicons.latest.mjs',
 		'./npm-pangolicons/',
-		'pangolicons.js'
+		'pangolicons.mjs'
 	);
 
 	await minify();

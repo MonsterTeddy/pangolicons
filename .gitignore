@@ -1,6 +1,8 @@
 node_modules
 .env
 
+*.zip
+
 # General
 .DS_Store
 .AppleDouble

@@ -2,11 +2,11 @@
 
 /**
  *
- * This file can be used to compile the pangolin icons into the file instead of adding all icons manually.
+ * This file can be used to compile the pangolicons icons into the file instead of adding all icons manually.
  * It will also minify the file, even though not much can be earned by compression, due to the many uncompressable svg
  * paths.
  *
- * Compiler will output to pangolin.latest.mjs and read the src from the provided source path. The src should contain a
+ * Compiler will output to pangolicons.latest.mjs and read the src from the provided source path. The src should contain a
  * //@icons placeholder where the icons should be appended, this is where the compiler splits the src
  *
  */
@@ -20,10 +20,10 @@ const OutputDir = './dist/';
 // define the input directory
 const InputDir = './dist/icons_svg_source/';
 // the version that the file should show
-const Version = '0.1';
+const Version = '1.0.0';
 
-// the path for the static part of pangolin
-const Srcfile = './dist/pangolin.src.mjs';
+// the path for the static part of pangolicons
+const Srcfile = './dist/pangolicons.src.mjs';
 
 // import uglify
 import uglify from 'uglify-es';
@@ -37,7 +37,7 @@ const minify = async () => {
 
 	try {
 		// get the file contents
-		file = await fs.readFile('./dist/pangolin.latest.mjs', 'utf-8');
+		file = await fs.readFile('./dist/pangolicons.latest.mjs', 'utf-8');
 	} catch (err) {
 		if (err) throw err;
 	}
@@ -47,7 +47,7 @@ const minify = async () => {
 
 		// write the response to file
 		await fs.writeFile(
-			'./dist/pangolin.latest.min.mjs',
+			'./dist/pangolicons.latest.min.mjs',
 			minified.code,
 			'utf-8'
 		);
@@ -113,6 +113,14 @@ const parseFileName = (fileName) => {
 	return parsedName;
 };
 
+// helper function to copy and rename
+const copyAndRename = async (src, file, dest, newFilename) => {
+	// begin operatin by copying the file
+	await fs.copyFile(`${src}${file}`, `${dest}${file}`);
+	// rename the file
+	await fs.rename(`${dest}${file}`, `${dest}${newFilename}`);
+};
+
 // the actual compile function that runs when the compiler is called
 
 (async () => {
@@ -139,7 +147,7 @@ const parseFileName = (fileName) => {
 	try {
 		// write the first part of the file to the output file
 		await fs.writeFile(
-			`${OutputDir}pangolin.latest.mjs`,
+			`${OutputDir}pangolicons.latest.mjs`,
 			src.start,
 			'utf-8'
 		);
@@ -161,24 +169,16 @@ const parseFileName = (fileName) => {
 			name: '${name}',
 			tags: [${tags.map((tag) => `'${tag}'`).join(',')}],
             path: '${parsePath(completePath)}',
-			toSvg(options = {}){ return Pangolin._toSvg(this, options) },
-			toString(options = {}) {return Pangolin._toString(this, options) }, 
+			toSvg(options = {}){ return Pangolicons._toSvg(this, options) },
+			toString(options = {}) {return Pangolicons._toString(this, options) }, 
         },`;
 
 			// append the created text to the file
 			await fs.appendFile(
-				`${OutputDir}pangolin.latest.mjs`,
+				`${OutputDir}pangolicons.latest.mjs`,
 				text,
 				'utf-8'
 			);
-
-			// helper function to copy and rename
-			const copyAndRename = async (src, file, dest, newFilename) => {
-				// begin operatin by copying the file
-				await fs.copyFile(`${src}${file}`, `${dest}${file}`);
-				// rename the file
-				await fs.rename(`${dest}${file}`, `${dest}${newFilename}`);
-			};
 
 			await copyAndRename(
 				InputDir,
@@ -196,22 +196,30 @@ const parseFileName = (fileName) => {
 
 	// append the end of the file
 
-	await fs.appendFile(`${OutputDir}pangolin.latest.mjs`, src.end, 'utf-8');
+	await fs.appendFile(`${OutputDir}pangolicons.latest.mjs`, src.end, 'utf-8');
 
 	// zip the icons
 	try {
-		childProcess.execSync(`zip -r pangolin_icons *`, {
+		childProcess.execSync(`zip -r pangolicons_icons *`, {
 			cwd: './dist/icons_svg',
 		});
 
 		// move the zip file to the correct folder
 		await fs.rename(
-			'./dist/icons_svg/pangolin_icons.zip',
-			'./dist/pangolin_icons.zip'
+			'./dist/icons_svg/pangolicons_icons.zip',
+			'./dist/pangolicons_icons.zip'
 		);
 	} catch (err) {
 		if (err) throw err;
 	}
+
+	// place the file in the npm folder for publishing
+	await copyAndRename(
+		'./dist/',
+		'pangolicons.latest.mjs',
+		'./npm-pangolicons/',
+		'pangolicons.js'
+	);
 
 	await minify();
 

@@ -1,0 +1,16 @@
+{
+	"name": "pangolicons",
+	"version": "1.0.0",
+	"description": "Pangolicons is an open source svg icon library",
+	"main": "pangolicons.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"svg",
+		"icon",
+		"icons"
+	],
+	"author": "Sebastian Heinz",
+	"license": "MIT"
+}

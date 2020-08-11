@@ -3,7 +3,7 @@
 //#region - license
 
 /**
-@name Pangolin - icon library
+@name Pangolicons - icon library
 @version
 @license MIT
 Copyright 2020 Sebastian Heinz
@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 //#endregion
 
-const Pangolin = {
+const Pangolicons = {
 	/**
 	 *
 	 * @private @method toSvg - create a svg element from a icon object, that only contains the svg paths
@@ -169,7 +169,9 @@ const Pangolin = {
 // on window load, run the replace method of the pangolin icons on all i object with the pangolin class
 window.addEventListener('load', (ev) => {
 	// get all pangolin icons
-	let iconElements = document.querySelectorAll('i[pangolin]');
+	let iconElements = document.querySelectorAll('i[pangolicons]');
 
-	iconElements.forEach((icon) => Pangolin._replace(icon));
+	iconElements.forEach((icon) => Pangolicons._replace(icon));
 });
+
+export { Pangolicons };

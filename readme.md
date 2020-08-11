@@ -77,7 +77,9 @@ In general, all attributes you assign to the **<i>** tag will be copied to the c
 
 For more information about SVG attributes, see the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noreffer noopener">MDN Svg Attribute reference</a> 
 
-## API $~$
+## API
+
+ $~$
 
 After adding **Pangolin** to your website it should be globally accessible, which lets you access all icons and the API using Javascript. You can also import it into your file.  
 

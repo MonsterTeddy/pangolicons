@@ -2,6 +2,8 @@
 
 let svgs;
 
+console.log(Pangolicons);
+
 const createIcons = (icons) => {
 	// get the icon container
 	let iconGrid = document.querySelector('.icons-grid');
@@ -55,13 +57,13 @@ let input = document.querySelector('#icons-search');
 
 // add an event listener to change icon selection on search
 input.addEventListener('input', (ev) => {
-	createIcons({ ...Pangolin.search(ev.target.value) });
+	createIcons({ ...Pangolicons.search(ev.target.value) });
 });
 
 window.addEventListener('load', (ev) => {
-	createIcons(Pangolin.icons);
+	createIcons(Pangolicons.icons);
 	input.placeholder = `Search all ${
-		Object.keys(Pangolin.icons).length
+		Object.keys(Pangolicons.icons).length
 	} Icons`;
 });
 

@@ -173,5 +173,3 @@ window.addEventListener('load', (ev) => {
 
 	iconElements.forEach((icon) => Pangolicons._replace(icon));
 });
-
-export { Pangolicons };

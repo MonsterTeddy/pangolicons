@@ -23,10 +23,10 @@ Download, link or install the Pangolicons file, whatever works best for you. You
 To use Pangolicons, include it in your project
 
 ```HTML
-<script src="./your/path/to/panolicons.latest.mjs" type="module"></script>
+<script src="./your/path/to/panolicons.latest.mjs" ></script>
 ```
 ```HTML
-<script src="https://pangolicons.herokuapp.com/panolicons.latest.mjs" type="module"></script>
+<script src="https://pangolicons.herokuapp.com/panolicons.latest.mjs" ></script>
 ```
 
 or install it using npm
@@ -78,11 +78,11 @@ For more information about SVG attributes, see the <a href="https://developer.mo
 After adding **Pangolin** to your website it should be globally accessible, which lets you access all icons and the API using Javascript. You can also import it into your file.
 
 ```javascript
-// importing with es6 import
-import { Pangolicons } from "./your/path/to/pangolicons.latest.mjs"
-
 // importing into node js
 const Pangolicons = require(`pangolicons`)
+
+// es6 import
+import Pangolicons from "pangolicons"
 ```
 
 ### `Pangolicons.icons`

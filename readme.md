@@ -94,7 +94,7 @@ import Pangolicons from "pangolicons"
 Is an object containing all Icons and their respective data
 
 ```javascript
-Pangolin.icons.x
+Pangolicons.icons.x
 //{
 //  name: "x", -- @string
 //  tags: ["x", "cancel", "remove"], --@array

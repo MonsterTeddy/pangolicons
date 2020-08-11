@@ -5,7 +5,8 @@
 # Pangolicons  
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-[Version](https://img.shields.io/badge/version-1.0.0-informational?style=flat-square)
+[![Version](https://img.shields.io/badge/version-1.0.0-informational?style=flat-square)]()
+
 
 Pangolicons is a modern & minimal SVG icon library with a simple api. All icons are fully customizable. 
 

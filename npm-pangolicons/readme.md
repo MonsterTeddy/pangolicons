@@ -1,4 +1,4 @@
-<img align="center" src="./public/assets/pangolin_logo@_s24.svg">
+<img align="center" src="https://teddystudiosink.de/images/pangolin_logo.svg">
 
 # Pangolicons
 
@@ -85,7 +85,7 @@ import Pangolicons from "./your/path/to/pangolicons.latest.mjs"
 const Pangolicons = require(`pangolicons`)
 ```
 
-`Pangolicons.icons`
+### `Pangolicons.icons`
 
 Is an object containing all Icons and their respective data
 
@@ -100,7 +100,7 @@ Pangolin.["x"]
 //}
 ```
 
-`Pangolicons.icons["icon name"].toSvg({options})`
+### `Pangolicons.icons["icon name"].toSvg({options})`
 
 Returns an SVGelement
 
@@ -118,7 +118,7 @@ elem.appendChild(Pangolicons.icons.x.toSvg({ color: "#aaffaa" }))
 </span>
 ```
 
-`Pangolicons.icons["icon name"].toString({options})`
+### `Pangolicons.icons["icon name"].toString({options})`
 
 Returns an SVG string
 
@@ -136,7 +136,7 @@ elem.innerHTML = Pangolicons.icons.x.toString({ color: #aaffaa })
 </span>	
 ```
 
-`Pangolicons._replace(element)`
+### `Pangolicons._replace(element)`
 
 Replaces a HTMLElement with a newly created SVG Icon
 
@@ -160,7 +160,7 @@ Pangolin._replace(icon)
 </svg>
 ```
 
-`Pangolicons.search("searchString", {options})`
+### `Pangolicons.search("searchString", {options})`
 
 Returns an array containing all icons which tags or title matches the search string.
 

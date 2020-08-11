@@ -1,4 +1,6 @@
-<img style="margin: auto" src="./public/assets/pangolin_logo@_s24.svg">
+<span align="center">
+	<img align="center" src="./public/assets/pangolin_logo@_s24.svg">
+</span>
 
 # Pangolicons
 

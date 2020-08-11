@@ -1,10 +1,11 @@
-<span align="center">
+<p align="center">
 	<img src="https://www.teddystudiosink.de/images/pangolin_logo@_s24.svg">
-</span>
+</p>
 
 # Pangolicons  
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![Version](https://img.shields.io/badge/version-1.0.0-informational)]
 
 Pangolicons is a modern & minimal SVG icon library with a simple api. All icons are fully customizable. 
 
@@ -75,7 +76,7 @@ In general, all attributes you assign to the **<i>** tag will be copied to the c
 
 For more information about SVG attributes, see the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noreffer noopener">MDN Svg Attribute reference</a> 
 
-## API  
+## API &nbsp;  &nbsp; 
 
 After adding **Pangolin** to your website it should be globally accessible, which lets you access all icons and the API using Javascript. You can also import it into your file.  
 
@@ -87,7 +88,7 @@ const Pangolicons = require(`pangolicons`)
 import Pangolicons from "pangolicons"
 ```  
 
-### `Pangolicons.icons`  
+### `Pangolicons.icons`  &nbsp;  &nbsp;  
 
 Is an object containing all Icons and their respective data
 

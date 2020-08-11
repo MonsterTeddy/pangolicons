@@ -1,4 +1,4 @@
-<img style="margin:auto" src="https://teddystudiosink.de/images/pangolin_logo@_s24.svg">
+<img style="margin: auto" src="./public/assets/pangolin_logo@_s24.svg">
 
 # Pangolicons
 
@@ -79,7 +79,7 @@ After adding **Pangolin** to your website it should be globally accessible, whic
 
 ```javascript
 // importing with es6 import
-import Pangolicons from "./your/path/to/pangolicons.latest.mjs"
+import { Pangolicons } from "./your/path/to/pangolicons.latest.mjs"
 
 // importing into node js
 const Pangolicons = require(`pangolicons`)

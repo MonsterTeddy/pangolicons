@@ -79,7 +79,7 @@ After adding **Pangolin** to your website it should be globally accessible, whic
 
 ```javascript
 // importing with es6 import
-import Pangolicons from "./your/path/to/pangolicons.latest.mjs"
+import { Pangolicons } from "./your/path/to/pangolicons.latest.mjs"
 
 // importing into node js
 const Pangolicons = require(`pangolicons`)

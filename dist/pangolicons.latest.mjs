@@ -87,7 +87,9 @@ const Pangolicons = {
 		});
 
 		// create the icon
-		let icon = this.icons[element.getAttribute('pangolin')].toSvg(options);
+		let icon = this.icons[element.getAttribute('pangolicons')].toSvg(
+			options
+		);
 
 		// append the icon before the ref element
 		element.parentElement.insertBefore(icon, element);

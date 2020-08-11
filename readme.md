@@ -1,8 +1,8 @@
 <span align="center">
-	<img src="./public/assets/pangolin_logo@_s24.svg">
+	<img src="https://www.teddystudiosink.de/images/pangolin_logo@_s24.svg">
 </span>
 
-# Pangolicons
+# Pangolicons  
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
@@ -75,9 +75,9 @@ In general, all attributes you assign to the **<i>** tag will be copied to the c
 
 For more information about SVG attributes, see the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noreffer noopener">MDN Svg Attribute reference</a> 
 
-## API
+## API  
 
-After adding **Pangolin** to your website it should be globally accessible, which lets you access all icons and the API using Javascript. You can also import it into your file.
+After adding **Pangolin** to your website it should be globally accessible, which lets you access all icons and the API using Javascript. You can also import it into your file.  
 
 ```javascript
 // importing into node js
@@ -85,9 +85,9 @@ const Pangolicons = require(`pangolicons`)
 
 // es6 import
 import Pangolicons from "pangolicons"
-```
+```  
 
-### `Pangolicons.icons`
+### `Pangolicons.icons`  
 
 Is an object containing all Icons and their respective data
 
@@ -102,9 +102,9 @@ Pangolin.["x"]
 //}
 ```
 
-### `Pangolicons.icons["icon name"].toSvg({options})`
+### `Pangolicons.icons["icon name"].toSvg({options})`  
 
-Returns an SVGelement
+Returns an SVGelement  
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -118,11 +118,11 @@ elem.appendChild(Pangolicons.icons.x.toSvg({ color: "#aaffaa" }))
 <span>
 	<svg class="pangolicons pangolicons-x" color="#aaffaa" ... >...</svg>
 </span>
-```
+```  
 
-### `Pangolicons.icons["icon name"].toString({options})`
+### `Pangolicons.icons["icon name"].toString({options})`  
 
-Returns an SVG string
+Returns an SVG string  
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -136,11 +136,11 @@ elem.innerHTML = Pangolicons.icons.x.toString({ color: #aaffaa })
 <span>
 	<svg class="pangolicons pangolicons-x" color="#aaffaa" ... >...</svg>
 </span>	
-```
+```  
 
-### `Pangolicons._replace(element)`
+### `Pangolicons._replace(element)`  
 
-Replaces a HTMLElement with a newly created SVG Icon
+Replaces a HTMLElement with a newly created SVG Icon  
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -160,11 +160,11 @@ Pangolin._replace(icon)
 <svg class="icon-to-replace" pangolin="x" ... >
 	<path ... />
 </svg>
-```
+```  
 
-### `Pangolicons.search("searchString", {options})`
+### `Pangolicons.search("searchString", {options})`  
 
-Returns an array containing all icons which tags or title matches the search string.
+Returns an array containing all icons which tags or title matches the search string.  
 
 | Name | Type | Description |
 |------|------|-------------|
@@ -177,7 +177,7 @@ let found = Pangolin.search("pangolin", { tags: true })
 
 // Result
 // [{name: "pangolin", tags: [ "pangolin" ], path: "<path ... />"", toSvg: ƒ, toString: ƒ}]
-```
+```  
 
 ## License
 

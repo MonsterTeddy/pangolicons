@@ -94,7 +94,7 @@ import Pangolicons from "pangolicons"
 Is an object containing all Icons and their respective data
 
 ```javascript
-Pangolin.["x"]
+Pangolin.icons.x
 //{
 //  name: "x", -- @string
 //  tags: ["x", "cancel", "remove"], --@array
@@ -103,6 +103,7 @@ Pangolin.["x"]
 //  toString: [Function], --@function
 //}
 ```
+> Hint: You can access all icons using dot notation. Names consist of characters and underscores.
 
 ### `Pangolicons.icons["icon name"].toSvg({options})`  
 

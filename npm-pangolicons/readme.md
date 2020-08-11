@@ -1,4 +1,4 @@
-<img align="center" src="https://teddystudiosink.de/images/pangolin_logo.svg">
+<img style="margin:auto" src="https://teddystudiosink.de/images/pangolin_logo@_s24.svg">
 
 # Pangolicons
 
